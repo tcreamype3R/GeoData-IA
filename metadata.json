@@ -1,0 +1,6 @@
+{
+  "name": "GT2B-Geo4News",
+  "description": "Generates automated geospatial analysis and insights for any location using AI.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}

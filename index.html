@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Geo-Data Insights</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/index.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://esm.sh/@google/genai@^0.7.0"
+        }
+      }
+    </script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div class="top-bar">
+      <div id="location-info">
+        <!-- Location data will be inserted here -->
+      </div>
+      <div class="top-bar-right">
+        <div id="weather-info">
+          <!-- Weather data will be inserted here -->
+        </div>
+        <div class="lang-switcher">
+          <span class="lang-option active" data-lang="es">ES</span>
+          <span class="lang-option" data-lang="en">EN</span>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <header>
+        <img src="https://goaltracker-ia.web.app/icons/icon-256x256.png" alt="GoalTracker Logo" class="header-logo">
+        <h1 data-lang-key="headerTitle">Geo-Data Insights Newsletter</h1>
+        <p data-lang-key="headerSubtitle">Recibe análisis geoespaciales personalizados basados en tu ubicación</p>
+      </header>
+      
+      <main>
+        <div class="left-column">
+          <section class="form-section">
+            <h2 data-lang-key="generateTitle">Generar Insights por Ubicación</h2>
+            <form id="insights-form">
+              <div class="form-group">
+                <label for="location" data-lang-key="locationLabel">Ubicación</label>
+                <input type="text" id="location" value="Chincha Alta, Perú" required placeholder="Buscar una ubicación..." />
+                <div id="map"></div>
+              </div>
+              <button type="submit" id="generate-button">
+                <span data-lang-key="generateButton">Generar Insights</span>
+                <div class="spinner-inline"></div>
+              </button>
+            </form>
+          </section>
+
+          <section class="insights-section">
+            <h2 id="insights-title">Últimos Insights para Chincha Alta, Perú</h2>
+            <div class="insights-grid" id="insights-grid">
+              <!-- Insight cards will be dynamically inserted here -->
+            </div>
+            <div class="view-newsletter-wrapper">
+              <button id="view-newsletter-button" disabled>
+                <i class="fas fa-newspaper"></i> <span data-lang-key="viewNewsletterButton">Ver Boletín</span>
+              </button>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer>
+          <div class="footer-content">
+              <img src="https://goaltracker-ia.web.app/icons/icon-256x256.png" alt="GoalTracker Logo" class="footer-logo">
+              <a href="https://www.linkedin.com/newsletters/reto-al-100-en-data-science-7323581012427304962" target="_blank" class="subscription-button" data-lang-key="subscribeButton">
+                  Suscríbete al "Reto 100% Data Science"
+              </a>
+              <p class="copyright" data-lang-key="copyright">&copy; Proyecto GoalTracker by TCreaMYPE</p>
+          </div>
+      </footer>
+    </div>
+
+    <div id="newsletter-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modal-title" data-lang-key="newsletterTitle">Boletín de Insights</h2>
+          <button class="modal-close-button" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div id="newsletter-content">
+                <p class="placeholder" data-lang-key="newsletterPlaceholder">Genere insights para crear el boletín.</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="action-buttons">
+                <button id="copy-button" disabled>
+                    <i class="fas fa-copy"></i> <span data-lang-key="copyButton">Copiar Texto</span>
+                </button>
+                <button id="export-html-button" disabled>
+                    <i class="fas fa-file-download"></i> <span data-lang-key="exportButton">Exportar como HTML</span>
+                </button>
+                <button id="share-linkedin-button" disabled>
+                    <i class="fab fa-linkedin"></i> <span data-lang-key="shareButton">Compartir en LinkedIn</span>
+                </button>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
